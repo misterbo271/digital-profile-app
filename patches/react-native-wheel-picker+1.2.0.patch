@@ -1,0 +1,119 @@
+diff --git a/node_modules/react-native-wheel-picker/WheelCurvedPicker.android.js b/node_modules/react-native-wheel-picker/WheelCurvedPicker.android.js
+index 2a774e8..a04f18b 100644
+--- a/node_modules/react-native-wheel-picker/WheelCurvedPicker.android.js
++++ b/node_modules/react-native-wheel-picker/WheelCurvedPicker.android.js
+@@ -29,26 +29,6 @@ const WheelCurvedPickerNative = requireNativeComponent('WheelCurvedPicker', Whee
+ 
+ class WheelCurvedPicker extends React.Component {
+ 
+-	propTypes: {
+-		...View.propTypes,
+-
+-		data: PropTypes.array,
+-
+-		textColor: ColorPropType,
+-
+-		textSize: PropTypes.number,
+-
+-		itemStyle: PropTypes.object,
+-
+-		itemSpace: PropTypes.number,
+-
+-		onValueChange: PropTypes.func,
+-
+-		selectedValue: PropTypes.any,
+-
+-		selectedIndex: PropTypes.number,
+-	}
+-
+ 	constructor(props){
+ 		super(props)
+ 		this.state = this._stateFromProps(props)
+@@ -87,27 +67,39 @@ class WheelCurvedPicker extends React.Component {
+ 
+ 	render() {
+ 		return <WheelCurvedPickerNative
+-				{...this.props}
+-				onValueChange={this._onValueChange}
+-				data={this.state.items}
+-				textColor={this.state.textColor}
+-				textSize={this.state.textSize}
+-				selectedIndex={parseInt(this.state.selectedIndex)} />;
++			{...this.props}
++			onValueChange={this._onValueChange}
++			data={this.state.items}
++			textColor={this.state.textColor}
++			textSize={this.state.textSize}
++			selectedIndex={parseInt(this.state.selectedIndex)} />;
+ 	}
+ }
+ 
+ class Item extends React.Component {
+-	propTypes: {
+-		value: React.PropTypes.any, // string or integer basically
+-		label: React.PropTypes.string,
+-	}
+-
+ 	render () {
+ 		// These items don't get rendered directly.
+ 		return null;
+ 	}
+ }
+ 
++WheelCurvedPicker.propTypes = {
++	...View.propTypes,
++	data: PropTypes.array,
++	textColor: ColorPropType,
++	textSize: PropTypes.number,
++	itemStyle: PropTypes.object,
++	itemSpace: PropTypes.number,
++	onValueChange: PropTypes.func,
++	selectedValue: PropTypes.any,
++	selectedIndex: PropTypes.number,
++}
++
++Item.propTypes = {
++	value: PropTypes.any, // string or integer basically
++	label: PropTypes.string,
++}
++
+ WheelCurvedPicker.Item = Item;
+ 
+ module.exports = WheelCurvedPicker;
+diff --git a/node_modules/react-native-wheel-picker/android/build.gradle b/node_modules/react-native-wheel-picker/android/build.gradle
+index f0a74ba..94ae3ad 100644
+--- a/node_modules/react-native-wheel-picker/android/build.gradle
++++ b/node_modules/react-native-wheel-picker/android/build.gradle
+@@ -1,11 +1,11 @@
+ apply plugin: 'com.android.library'
+ 
+ android {
+-    compileSdkVersion 23
+-    buildToolsVersion "23.0.1"
++    compileSdkVersion rootProject.ext.compileSdkVersion
++    buildToolsVersion rootProject.ext.buildToolsVersion
+     defaultConfig {
+-        minSdkVersion 16
+-        targetSdkVersion 22
++        minSdkVersion rootProject.ext.minSdkVersion
++        targetSdkVersion rootProject.ext.targetSdkVersion
+         versionCode 1
+         versionName "1.0"
+         ndk {
+diff --git a/node_modules/react-native-wheel-picker/index.js b/node_modules/react-native-wheel-picker/index.js
+index bc7ed07..23d201f 100644
+--- a/node_modules/react-native-wheel-picker/index.js
++++ b/node_modules/react-native-wheel-picker/index.js
+@@ -3,10 +3,10 @@
+ import React from 'react';
+ 
+ import {
+-	PickerIOS,
+ 	Platform,
++	View
+ } from 'react-native';
+ 
+ import WheelCurvedPicker from './WheelCurvedPicker'
+ 
+-module.exports = (Platform.OS === 'ios' ? PickerIOS : WheelCurvedPicker)
++module.exports = (Platform.OS === 'ios' ? View : WheelCurvedPicker)
