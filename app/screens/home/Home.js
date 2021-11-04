@@ -29,7 +29,7 @@ const Home = () => {
     };
     const renderCenterTabBarIcon = (name) => ({focused}) => {
         return (
-            <CBTouchableOpacity style={[{position: 'absolute', top: 7.5}, {width: 45, height: 45, borderRadius: 22.5, backgroundColor: primaryColor}, {alignItems: 'center', justifyContent: 'center'}]} define={'none'}>
+            <CBTouchableOpacity style={[{position: 'absolute', top: -8}, {width: 48, height: 48, borderRadius: 22.5, backgroundColor: primaryColor}, {alignItems: 'center', justifyContent: 'center'}]} define={'none'}>
                 <CBIcon type={'material-community'} name={name} size={25} color={'#FFFFFF'}/>
             </CBTouchableOpacity>
         );

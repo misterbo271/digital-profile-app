@@ -19,6 +19,7 @@ import CBIcon from 'components/CBIcon';
 import CBImage from 'components/CBImage';
 import CBInput from 'components/CBInput';
 import CBLinearProgress from 'components/CBLinearProgress';
+import CBListItem from "components/CBListItem";
 import CBMenu from 'components/CBMenu';
 import CBRadio from 'components/CBRadio';
 import CBRating from 'components/CBRating';
@@ -58,6 +59,7 @@ export {
     CBImage,
     CBInput,
     CBLinearProgress,
+    CBListItem,
     CBMenu,
     CBRadio,
     CBRating,

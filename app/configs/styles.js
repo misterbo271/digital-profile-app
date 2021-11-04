@@ -96,6 +96,11 @@ export const appStyles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center'
     },
+    subrow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 8
+    },
     column: {
         flexDirection: 'column',
         alignItems: 'center'
@@ -213,5 +218,164 @@ export const appStyles = StyleSheet.create({
     separator: {
         height: 1,
         backgroundColor: colors.lineColor
+    },
+    font_14_16: {
+        fontSize: 16,
+        lineHeight: 24
+    },
+    borderBottom: {
+        borderBottomWidth: 1,
+        borderBottomColor: colors.backgroundColor
+    },
+    listItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: 55
+    },
+    left: {
+        width: 30,
+        alignItems: 'flex-start'
+    },
+    mid: {
+        flex: 1.4
+    },
+    right: {
+        width: 40,
+        alignItems: 'flex-end',
+        marginRight: 15
+    },
+    imageItem: {
+        width: 25,
+        height: 25
+    },
+    colorRed: {
+        color: '#DA1C5C'
+    },
+    textBold: {
+        fontFamily: 'GoogleSans-Bold'
+    },
+    description: {
+        fontSize: 12,
+        color: colors.darkGray,
+        marginBottom: 10,
+        marginTop: -5
+    },
+    container_profile: {
+        flex: 1,
+        backgroundColor: colors.white
+    },
+    subListItem: {
+        backgroundColor: colors.lightBackground,
+        marginVertical: 10,
+        padding: 6,
+        borderRadius: 16,
+        marginBottom: 2
+    },
+    loginContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        paddingBottom: 10,
+    },
+    button_profile: {
+        paddingVertical: 8
+        // shadow effect
+    },
+    userInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: 72,
+        paddingTop: 23,
+        paddingBottom: 18,
+        paddingHorizontal: 35,
+        backgroundColor: '#ffffff'
+    },
+    userInfoLeft: {
+        width: 70,
+        height: 70,
+        backgroundColor: colors.lightBlue,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 18,
+        flex: 1,
+        marginBottom: 10
+    },
+    ListItemContainer: {
+        paddingHorizontal: 14,
+        borderRadius: 16,
+        overflow: 'hidden',
+        marginTop: -10,
+        zIndex: 999,
+        backgroundColor: colors.white
+    },
+    mid_profile: {
+        flex: 4,
+        flexDirection: 'column',
+        paddingVertical: 8
+    },
+    containerModal: {
+        width: '100%',
+        position: 'absolute',
+        bottom: 0,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        zIndex: 999
+    },
+    containerBackground: {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        opacity: 0.5,
+        zIndex: 1
+    },
+    containerChildren: {
+        height: 43,
+        width: 255,
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+
+        elevation: 7,
+        alignItems: 'center',
+        marginBottom: 78
+    },
+    containerLine: {
+        height: 1,
+        backgroundColor: '#e0e0e0',
+        justifyContent: 'space-between'
+    },
+    content_profile: {
+        color: '#000000',
+        fontFamily: 'GoogleSans-Medium',
+        paddingLeft: 16,
+        paddingRight: 16
+    },
+    fullName: {
+        fontWeight: 'bold',
+        marginRight: 35,
+        color: '#005596',
+        letterSpacing: -0.3,
+        fontSize: 20,
+        lineHeight: 20
+    },
+    subInformationContainer: {
+        flexDirection: 'row',
+        marginTop: 4,
+        alignItems: 'center'
+    },
+    subInformation: {
+        fontSize: 12,
+        lineHeight: 16,
+        color: '#474747',
+        letterSpacing: 0.1,
+        marginLeft: 4
     }
 });

@@ -6,7 +6,10 @@
   "action_skip": "Skip",
   "action_resend": "Resend",
   "action_terms_and_conditions": "Terms & Conditions",
-
+  "NO": "Không",
+  "no_really": "Không",
+  "account": "Tài khoản",
+  "YES": "Có",
   "button_ok": "Ok",
   "button_cancel": "Cancel",
   "button_close": "Close",
