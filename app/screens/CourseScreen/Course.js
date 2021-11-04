@@ -4,12 +4,12 @@ import {appStyles} from 'configs/styles';
 
 import Base from 'screens/Base';
 
-export default class Dashboard extends Base {
+export default class Course extends Base {
 
     render() {
         return (
             <CBContainer style={{alignItems: 'center', justifyContent: 'center'}}>
-                <CBText style={appStyles.text} define={'text'}>{'Dashboard'}</CBText>
+                <CBText style={appStyles.text} define={'text'}>{'Course'}</CBText>
             </CBContainer>
         );
     }

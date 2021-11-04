@@ -4,12 +4,12 @@ import {appStyles} from 'configs/styles';
 
 import Base from 'screens/Base';
 
-export default class Statistic extends Base {
+export default class QRScan extends Base {
 
     render() {
         return (
             <CBContainer style={{alignItems: 'center', justifyContent: 'center'}}>
-                <CBText style={appStyles.text} define={'text'}>{'Statistic'}</CBText>
+                <CBText style={appStyles.text} define={'text'}>{'QRScan'}</CBText>
             </CBContainer>
         );
     }

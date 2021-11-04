@@ -4,12 +4,12 @@ import {appStyles} from 'configs/styles';
 
 import Base from 'screens/Base';
 
-export default class Notification extends Base {
+export default class Certification extends Base {
 
     render() {
         return (
             <CBContainer style={{alignItems: 'center', justifyContent: 'center'}}>
-                <CBText style={appStyles.text} define={'text'}>{'Notification'}</CBText>
+                <CBText style={appStyles.text} define={'text'}>{'Certificate'}</CBText>
             </CBContainer>
         );
     }

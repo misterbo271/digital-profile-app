@@ -6,11 +6,11 @@ import {appStyles} from 'configs/styles';
 import {helpers} from 'configs/themes';
 import dimens from 'configs/dimens';
 
-import Dashboard from 'screens/home/Dashboard';
-import Statistic from 'screens/home/Statistic';
-import Dummy from 'screens/home/Dummy';
-import Notification from 'screens/home/Notification';
-import Profile from 'screens/home/Profile';
+import HomeScreen from 'screens/HomeScreen/HomeScreen';
+import Course from 'screens/CourseScreen/Course';
+import QRScan from 'screens/QRScan/QRScan';
+import Certification from 'screens/Certification/Certification';
+import Profile from 'screens/Profile/Profile';
 
 const Tab = createBottomTabNavigator();
 const Home = () => {
@@ -22,21 +22,21 @@ const Home = () => {
     const renderTabBarIcon = (name) => ({focused}) => {
         return (
             <CBView style={{position: 'absolute', top: 15}} define={'none'}>
-                <CBIcon type={'ionicon'} name={name} color={focused ? primaryColor : iconColor} size={25}/>
-                <CBIcon type={'ionicon'} name={'ellipse-sharp'} color={focused ? primaryColor : backgroundColor} size={6}/>
+                <CBIcon type={'material-community'} name={name} color={focused ? primaryColor : iconColor} size={28}/>
+                {/*<CBIcon type={'material-community'} name={'ellipse-sharp'} color={focused ? primaryColor : backgroundColor} size={6}/>*/}
             </CBView>
         );
     };
     const renderCenterTabBarIcon = (name) => ({focused}) => {
         return (
             <CBTouchableOpacity style={[{position: 'absolute', top: 7.5}, {width: 45, height: 45, borderRadius: 22.5, backgroundColor: primaryColor}, {alignItems: 'center', justifyContent: 'center'}]} define={'none'}>
-                <CBIcon type={'ionicon'} name={name} size={25} color={'#FFFFFF'}/>
+                <CBIcon type={'material-community'} name={name} size={25} color={'#FFFFFF'}/>
             </CBTouchableOpacity>
         );
     };
     return (
         <Tab.Navigator
-            initialRouteName={'Dashboard'}
+            initialRouteName={'HomeScreen'}
             screenOptions={{
                 lazy: true,
                 tabBarHideOnKeyboard: true,
@@ -52,11 +52,11 @@ const Home = () => {
                     borderRadius: 30
                 }]
             }}>
-            <Tab.Screen name={'Dashboard'} component={Dashboard} options={{headerShown: false, tabBarIcon: renderTabBarIcon('grid-outline')}}/>
-            <Tab.Screen name={'Statistic'} component={Statistic} options={{headerShown: false, tabBarIcon: renderTabBarIcon('pie-chart-outline')}}/>
-            <Tab.Screen name={'Dummy'} component={Dummy} options={{headerShown: false, tabBarIcon: renderCenterTabBarIcon('location-outline')}}/>
-            <Tab.Screen name={'Notification'} component={Notification} options={{headerShown: false, tabBarIcon: renderTabBarIcon('notifications-outline')}}/>
-            <Tab.Screen name={'Profile'} component={Profile} options={{headerShown: false, tabBarIcon: renderTabBarIcon('person-outline')}}/>
+            <Tab.Screen name={'HomeScreen'} component={HomeScreen} options={{headerShown: false, tabBarIcon: renderTabBarIcon('home-edit-outline')}}/>
+            <Tab.Screen name={'Course'} component={Course} options={{headerShown: false, tabBarIcon: renderTabBarIcon('school-outline')}}/>
+            <Tab.Screen name={'QRScan'} component={QRScan} options={{headerShown: false, tabBarIcon: renderCenterTabBarIcon('qrcode-scan')}}/>
+            <Tab.Screen name={'Certification'} component={Certification} options={{headerShown: false, tabBarIcon: renderTabBarIcon('certificate-outline')}}/>
+            <Tab.Screen name={'Profile'} component={Profile} options={{headerShown: false, tabBarIcon: renderTabBarIcon('account-circle-outline')}}/>
         </Tab.Navigator>
     );
 };
