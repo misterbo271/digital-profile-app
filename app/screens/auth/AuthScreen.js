@@ -163,7 +163,7 @@ export default class AuthScreen extends Base {
     };
 
     render() {
-        const {isLoginWithSocial} = this.state;
+        // const {isLoginWithSocial} = this.state;
         return (
             <CBContainer>
                 <CBTouchableWithoutFeedback style={{flex: 1}} define={'none'} onPress={this.onBlur}>
