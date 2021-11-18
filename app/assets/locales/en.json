@@ -63,6 +63,8 @@
   "text_not_receive_code": "I haven't received my security code?",
   "text_resend_code": "Request a new code in {0} seconds",
   "text_create_password": "Tạo mật khẩu",
+  "text_wallet_security": "Bảo mật Wallet",
+  "text_confirm_srp": "Xác nhận Secret\nRecovery Phrase",
   "text_my_school": "Trường học của tôi",
 
   "screen_empty": "Code Base",

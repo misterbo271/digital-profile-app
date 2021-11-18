@@ -42,7 +42,10 @@ export const appStyles = StyleSheet.create({
         color: colors.primaryTextColor,
         fontFamily: 'GoogleSans-Medium'
     },
-
+    center: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     heading_1: {
         fontSize: dimens.xxxLargeText,
         color: colors.primaryColor,
@@ -95,6 +98,10 @@ export const appStyles = StyleSheet.create({
     cover: {
         width: '100%',
         height: (0.9 * dimens.widthScreen) / 2
+    },
+    stroke: {
+        height: 1,
+        backgroundColor: colors.lineColor
     },
     negative: {
         fontSize: dimens.mediumText,

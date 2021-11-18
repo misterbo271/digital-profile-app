@@ -36,7 +36,6 @@ export default {
     subPrimaryColor: '#EDF3FD',
     grayColor: '#4D4D4D',
     subGrayColor: '#F6F6F6',
-    lightGray: '#828282',
     disableGray: '#BDBDBD',
     mediumGray: '#4F4F4F',
     darkGray: '#333333',
