@@ -13,6 +13,8 @@ import Empty from 'screens/Empty';
 import Introduction from 'screens/auth/Introduction';
 import LoginOrRegister from 'screens/auth/LoginOrRegister';
 import AuthScreen from "screens/auth/AuthScreen";
+import Register from "screens/auth/Register";
+import SRPLogin from "screens/auth/SRPLogin";
 import Verify from 'screens/auth/Verify';
 
 const Stack = createStackNavigator();
@@ -50,6 +52,8 @@ export const UserStack = () => {
             <Stack.Screen name={'Web'} component={Web} options={{title: strings('screen_web')}}/>
             <Stack.Screen name={'Empty'} component={Empty} options={{title: strings('screen_empty')}}/>
             <Stack.Screen name={'AuthScreen'} component={AuthScreen} options={{...TransitionPresets.ModalSlideFromBottomIOS, headerShown: false}}/>
+            <Stack.Screen name={'Register'} component={Register} options={{...TransitionPresets.ModalSlideFromBottomIOS, headerShown: false}}/>
+            <Stack.Screen name={'SRPLogin'} component={SRPLogin} options={{...TransitionPresets.ModalSlideFromBottomIOS, headerShown: false}}/>
             <Stack.Screen name={'Introduction'} component={Introduction} options={{...TransitionPresets.ModalSlideFromBottomIOS, headerShown: false}}/>
             <Stack.Screen name={'LoginOrRegister'} component={LoginOrRegister} options={{...TransitionPresets.ModalSlideFromBottomIOS, headerShown: false}}/>
             <Stack.Screen name={'Verify'} component={Verify} options={{headerShown: false}}/>

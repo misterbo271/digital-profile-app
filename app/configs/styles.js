@@ -42,6 +42,12 @@ export const appStyles = StyleSheet.create({
         color: colors.primaryTextColor,
         fontFamily: 'GoogleSans-Medium'
     },
+
+    heading_1: {
+        fontSize: dimens.xxxLargeText,
+        color: colors.primaryColor,
+        fontFamily: 'GoogleSans-Bold'
+    },
     title: {
         fontSize: dimens.largeText,
         color: colors.primaryTextColor,

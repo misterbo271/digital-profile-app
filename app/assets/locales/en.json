@@ -33,6 +33,8 @@
   "input_phone_number": "Phone number",
 
   "placeholder_phone_number": "Enter phone number",
+  "placeholder_new_password": "Mật khẩu mới",
+  "placeholder_confirm_new_password": "Xác nhận mật khẩu",
 
   "toast_copied": "Copy successful!",
   "toast_resend": "Resend successful!",
@@ -47,13 +49,16 @@
   "text_subtitle_intro_2": "Your husband stories aren't \"tasty\".",
   "text_title_login": "Your phone number!",
   "text_title_auth": "Wallet Setup",
+  "text_title_pcs_wallet": "PCS Wallet",
   "text_subtitle_login": "A 6 digits security code will be sent via SMS to verify your mobile number.",
   "text_subtitle_auth": "Đăng nhập bằng ví hiện có hoặc tạo một ví mới",
+  "text_note_password": "Mật khẩu này sẽ kích hoạt PCS Wallet của bạn chỉ duy nhất trên thiết bị này",
   "text_title_verify": "Verify phone number!",
   "text_subtitle_verify": "Please enter the 6 digits security code we just send you at {0}",
   "text_or_login": "Or Continue with",
   "text_not_receive_code": "I haven't received my security code?",
   "text_resend_code": "Request a new code in {0} seconds",
+  "text_create_password": "Tạo mật khẩu",
 
   "screen_empty": "Code Base",
   "screen_web": "",

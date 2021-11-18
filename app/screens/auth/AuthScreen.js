@@ -58,6 +58,14 @@ export default class AuthScreen extends Base {
         });
     };
 
+    onRegister = () => {
+        RootNavigation.navigate('Register');
+    };
+
+    onSRPLogin = () => {
+        RootNavigation.navigate('SRPLogin');
+    };
+
     onBlur = () => {
         Keyboard.dismiss();
     };
@@ -168,10 +176,10 @@ export default class AuthScreen extends Base {
             <CBContainer>
                 <CBTouchableWithoutFeedback style={{flex: 1}} define={'none'} onPress={this.onBlur}>
                     <CBView style={{flex: 1, paddingVertical: 15, paddingHorizontal: 30}} define={'none'}>
-                        <CBText style={[appStyles.heading, {marginTop: 30, alignSelf: 'center'}]} define={'heading'}>{strings('text_title_auth')}</CBText>
+                        <CBText style={[appStyles.heading_1, { marginTop: 30, alignSelf: 'center'}]}>{strings('text_title_auth')}</CBText>
                         <CBText style={[appStyles.subtext, {marginTop: 10, alignSelf: 'center'}]} define={'subtext'}>{strings('text_subtitle_auth')}</CBText>
-                        <CBButton buttonStyle={[appStyles.button, {marginTop: 75}]} titleStyle={appStyles.button_text} type="outline" title={strings('button_login_by_srp')}/>
-                        <CBButton buttonStyle={[appStyles.button, {marginTop: 20}]} title={strings('button_register')}/>
+                        <CBButton buttonStyle={[appStyles.button, {marginTop: 75}]} titleStyle={appStyles.button_text} type="outline" title={strings('button_login_by_srp')} onPress={this.onSRPLogin}/>
+                        <CBButton buttonStyle={[appStyles.button, {marginTop: 20}]} title={strings('button_register')} onPress={this.onRegister}/>
                         <CBAction style={{alignSelf: 'center', marginTop: 440}} title={strings('action_terms_and_conditions')} onPress={this.onTermsAndConditions}/>
                     </CBView>
                 </CBTouchableWithoutFeedback>
