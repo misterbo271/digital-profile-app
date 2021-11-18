@@ -11,6 +11,7 @@ import Course from 'screens/CourseScreen/Course';
 import QRScan from 'screens/QRScan/QRScan';
 import Certification from 'screens/Certification/Certification';
 import Profile from 'screens/Profile/Profile';
+import Login from 'screens/login/Login';
 
 const Tab = createBottomTabNavigator();
 const Home = () => {
@@ -23,7 +24,7 @@ const Home = () => {
         return (
             <CBView style={{position: 'absolute', top: 15}} define={'none'}>
                 <CBIcon type={'material-community'} name={name} color={focused ? primaryColor : iconColor} size={28}/>
-                {/*<CBIcon type={'material-community'} name={'ellipse-sharp'} color={focused ? primaryColor : backgroundColor} size={6}/>*/}
+                <CBIcon type={'material-community'} name={'checkbox-blank-circle'} color={focused ? primaryColor : backgroundColor} size={6}/>
             </CBView>
         );
     };

@@ -6,6 +6,7 @@ import CBBadge from 'components/CBBadge';
 import CBBottomSheet from 'components/CBBottomSheet';
 import CBButton from 'components/CBButton';
 import CBButtonGroup from 'components/CBButtonGroup';
+import CBContinueButton from 'components/CBContinueButton';
 import CBCan from 'components/CBCan';
 import CBCard from 'components/CBCard';
 import CBCheckBox from 'components/CBCheckBox';
@@ -46,6 +47,7 @@ export {
     CBBottomSheet,
     CBButton,
     CBButtonGroup,
+    CBContinueButton,
     CBCan,
     CBCard,
     CBCheckBox,
