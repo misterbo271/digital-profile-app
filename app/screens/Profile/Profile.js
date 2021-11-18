@@ -1,19 +1,3 @@
-// import React from 'react';
-// import {CBContainer, CBText} from 'components';
-// import {appStyles} from 'configs/styles';
-//
-// import Base from 'screens/Base';
-//
-// export default class Profile extends Base {
-//
-//     render() {
-//         return (
-//             <CBContainer style={{alignItems: 'center', justifyContent: 'center'}}>
-//                 <CBText style={appStyles.text} define={'text'}>{'Profile'}</CBText>
-//             </CBContainer>
-//         );
-//     }
-// }
 import React, { Component } from 'react'
 import {
     Alert,
@@ -29,6 +13,7 @@ import {
     TouchableOpacity,
     View
 } from 'react-native'
+import RootNavigation from 'screens/RootNavigation';
 import CBHeader from 'components/CBHeader'
 import CBListItem from 'components/CBListItem'
 import {CBAvatar, CBImage} from "app/components";
@@ -57,6 +42,10 @@ class Profile extends Component {
             // this.props.membershipActions.getMembershipDetails()
         }
     }
+
+    onLoginNow = () => {
+        RootNavigation.navigate('AuthScreen');
+    };
 
     render() {
         const {isSignIned, membershipData, studentInfo, customer, registerType} = this.props
@@ -92,6 +81,7 @@ class Profile extends Component {
                         // onPress={() => {
                         //     isSignIned ? this._goAccountInformationScreen(isSignIned) : this.props.navActions.goLoginScreen()
                         // }}
+                        onPress={this.onLoginNow}
                     >
                     <View style={[appStyles.userInfo]}>
                             {/*// isSignIned*/}

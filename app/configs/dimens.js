@@ -22,6 +22,7 @@ export default {
     xLargeText: 21,
     largeText: 19,
     mediumText: 17,
+    mid_mediumText: 16,
     normalText: 15,
     smallText: 13,
     tinyText: 11,

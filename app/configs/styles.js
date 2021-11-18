@@ -57,6 +57,11 @@ export const appStyles = StyleSheet.create({
         color: colors.primaryTextColor,
         fontFamily: 'GoogleSans-Regular'
     },
+    button_text: {
+        fontSize: dimens.mid_mediumText,
+        color: colors.primaryColor,
+        fontFamily: 'GoogleSans-Regular'
+    },
     subtext: {
         fontSize: dimens.normalText,
         color: colors.secondaryTextColor,

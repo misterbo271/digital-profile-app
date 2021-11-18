@@ -1,7 +1,7 @@
 export default {
     STATUS_OK: 200,
 
-    URI_TERMS_AND_CONDITIONS: '',
+    URI_TERMS_AND_CONDITIONS: 'https://www.manutd.com/',
 
     URL_PATTERN: '',
     DYNAMIC_URL_PATTERN: '',
