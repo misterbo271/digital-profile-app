@@ -73,6 +73,11 @@ export const appStyles = StyleSheet.create({
         color: colors.secondaryTextColor,
         fontFamily: 'GoogleSans-Regular'
     },
+    note_text: {
+        fontSize: dimens.smallText,
+        color: colors.secondaryTextColor,
+        fontFamily: 'GoogleSans-Regular'
+    },
     caption: {
         fontSize: dimens.smallText,
         color: colors.tertiaryTextColor,

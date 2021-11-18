@@ -22,6 +22,8 @@ import {strings} from 'controls/i18n';
 import {appStyles} from 'configs/styles'
 import colors from 'configs/colors'
 import {CBIcon} from "app/components";
+import JsonUtil from "utils/JsonUtil";
+import CBConstant from "constants/CBConstant";
 
 class Profile extends Component {
     constructor(props) {
@@ -45,6 +47,15 @@ class Profile extends Component {
 
     onLoginNow = () => {
         RootNavigation.navigate('AuthScreen');
+    };
+
+    onMySchool = () => {
+        RootNavigation.navigate('Web', {
+            title: strings('text_my_school'),
+            defaultParam: JsonUtil.buildDefaultParam({
+                uri: "https://portal.hcmut.edu.vn/"
+            })
+        });
     };
 
     render() {
@@ -151,10 +162,8 @@ class Profile extends Component {
                             hasBorderBottom={false}
                             title={'Trường học của tôi'}
                             isSignIned={true}
-                            // onPress={() => {
-                            //   this._goRewardScreen(isSignIned)
-                            // }}/>
-                            />
+                            onPress={this.onMySchool}
+                          />
                         </View>
 
                         {/*List2*/}
@@ -172,16 +181,6 @@ class Profile extends Component {
                                 //   this._goMemberShipCardScreen(isSignIned)
                                 // }}/>
                             />
-                            {/*    : <ListItem*/}
-                            {/*        borderBottomColor={appColors.lightBorder}*/}
-                            {/*        hasBorderBottom={true}*/}
-                            {/*        leftIcon='star-outline'*/}
-                            {/*        title={I18n.t('member_point')}*/}
-                            {/*        isSignIned={isSignIned}*/}
-                            {/*        onPress={() => {*/}
-                            {/*          this._goMemberShipCardScreen(isSignIned)*/}
-                            {/*        }}/>*/}
-                            {/*}*/}
                             <CBListItem
                                 borderBottomColor={colors.lightBorder}
                                 leftIcon='calendar-multiple'

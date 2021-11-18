@@ -1,5 +1,5 @@
 import React from 'react';
-import {CBAction, CBButton, CBInput, CBView, CBContainer, CBText, CBTouchableWithoutFeedback, CBIcon, CBTouchableOpacity} from 'components';
+import {CBAction, CBButton, CBInput, CBCheckBox, CBView, CBContainer, CBText, CBTouchableWithoutFeedback, CBIcon, CBTouchableOpacity} from 'components';
 import {appStyles} from 'configs/styles';
 
 import Base from 'screens/Base';
@@ -14,6 +14,9 @@ export default class Register extends Base {
 
     constructor(props) {
         super(props);
+        this.state = {
+            checked: false
+        }
     }
     onBlur = () => {
         Keyboard.dismiss();
@@ -22,6 +25,12 @@ export default class Register extends Base {
     onClose = () => {
         RootNavigation.goBack();
     };
+
+    onChecked = () => {
+        this.setState({
+            checked: !this.state.checked
+        })
+    }
 
     onTermsAndConditions = () => {
         RootNavigation.navigate('Web', {
@@ -33,6 +42,7 @@ export default class Register extends Base {
     };
 
     render() {
+        const {checked} = this.state;
         return (
             <CBContainer>
                 <CBTouchableWithoutFeedback style={{flex: 1}} define={'none'} onPress={this.onBlur}>
@@ -64,7 +74,26 @@ export default class Register extends Base {
                             //onChangeText={handleChange('phoneNumber')}
                             //onSubmitEditing={handleSubmit}
                         />
-                        <CBButton buttonStyle={[appStyles.button, {marginTop: 275}]} title={strings('text_create_password')} />
+                        <CBView style={appStyles.row}>
+                            <CBText style={{marginTop: 5, color: colors.red}}>* </CBText>
+                            <CBText style={[appStyles.note_text, {marginTop: 5}]} define={'subtext'}>{strings('text_password_rule')}</CBText>
+                        </CBView>
+                        <CBView style={[appStyles.row, {marginTop: 190}]}>
+                            <CBCheckBox
+                                size={20}
+                                checked={checked}
+                                onPress={this.onChecked}
+                            />
+                            <CBText style={[appStyles.note_text, {marginTop: 5}]} define={'subtext'}>{strings('text_note')}</CBText>
+                        </CBView>
+                        <CBView style={appStyles.row}>
+                            <CBText style={[appStyles.note_text, {marginTop: 5}]} define={'subtext'}>{strings('text_note_2')}</CBText>
+                            <CBTouchableOpacity onPress={this.onTermsAndConditions}>
+                                <CBText style={[appStyles.note_text, {color: colors.darkTurquoise, marginTop: 5}]}>{strings('text_more_information')}</CBText>
+                            </CBTouchableOpacity>
+
+                        </CBView>
+                        <CBButton buttonStyle={[appStyles.button, {marginTop: 35}]} title={strings('text_create_password')} />
                         <CBAction style={{alignSelf: 'center', marginTop: 40}} title={strings('action_terms_and_conditions')} onPress={this.onTermsAndConditions}/>
                     </CBView>
                 </CBTouchableWithoutFeedback>
