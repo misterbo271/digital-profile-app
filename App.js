@@ -197,7 +197,7 @@ export default class App extends Component {
         return (
             <ThemeProvider theme={helpers('elements', theme)}>
                 <StatusBar barStyle={barStyle} backgroundColor={statusBarColor}/>
-                <NavigationContainer ref={this.navigationRef} onReady={this.onReady} onStateChange={this.onStateChange} theme={helpers('navigation', theme)} initialRouteName={'Home'}>
+                <NavigationContainer ref={this.navigationRef} onReady={this.onReady} onStateChange={this.onStateChange} theme={helpers('navigation', theme)} initialRouteName={'LoginOrReset'}>
                     <RootStack/>
                 </NavigationContainer>
                 <DropdownAlert ref={ref => DropdownAlertHolder.setDropdownAlert(ref)} inactiveStatusBarStyle={barStyle} inactiveStatusBarBackgroundColor={statusBarColor}/>

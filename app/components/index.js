@@ -22,6 +22,7 @@ import CBInput from 'components/CBInput';
 import CBLinearProgress from 'components/CBLinearProgress';
 import CBListItem from "components/CBListItem";
 import CBMenu from 'components/CBMenu';
+import CBResetWallet from "components/CBResetWallet";
 import CBRadio from 'components/CBRadio';
 import CBRating from 'components/CBRating';
 import CBRound from 'components/CBRound';
@@ -63,6 +64,7 @@ export {
     CBLinearProgress,
     CBListItem,
     CBMenu,
+    CBResetWallet,
     CBRadio,
     CBRating,
     CBRound,

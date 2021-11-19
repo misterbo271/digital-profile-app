@@ -52,6 +52,7 @@
   "text_subtitle_intro_2": "Các câu chuyện mà chồng bạn kể nghe thật là nhạt nhẽo.",
   "text_title_login": "Số điện thoại của bạn!",
   "text_title_auth": "Wallet Setup",
+  "text_welcome_back": "Welcome Back!",
   "text_title_pcs_wallet": "PCS Wallet",
   "text_subtitle_login": "Mã bảo mật gồm 6 chữ số sẽ được gửi qua SMS để xác minh số điện thoại di động của bạn.",
   "text_subtitle_auth": "Đăng nhập bằng ví hiện có hoặc tạo một ví mới",
@@ -73,6 +74,7 @@
   "text_wallet_security": "Bảo mật Wallet",
   "text_confirm_srp": "Xác nhận Secret\nRecovery Phrase",
   "text_my_school": "Trường học của tôi",
+  "text_confirm_reset_wallet": "Bạn có chắc chắn muốn xóa ví của mình không?",
 
   "screen_empty": "Code Base",
   "screen_web": "",

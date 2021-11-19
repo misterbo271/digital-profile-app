@@ -139,6 +139,12 @@ export const appStyles = StyleSheet.create({
         height: 50,
         borderRadius: 10
     },
+    button_modal: {
+        height: 42,
+        width: 230,
+        borderRadius: 32,
+        marginLeft: 55
+    },
     border: {
         borderWidth: 1
     },
@@ -214,12 +220,24 @@ export const appStyles = StyleSheet.create({
         justifyContent: 'flex-end',
         margin: 0
     },
+    modal_alert: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
     sheet: {
         width: dimens.widthScreen,
         paddingBottom: dimens.bottomSpace,
         backgroundColor: colors.contentColor,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10
+    },
+    sheet_1: {
+        width: dimens.widthScreen,
+        paddingBottom: dimens.bottomSpace,
+        backgroundColor: colors.contentColor,
+        borderRadius: 16,
     },
     knob: {
         width: 45,

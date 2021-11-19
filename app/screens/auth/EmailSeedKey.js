@@ -10,7 +10,7 @@ import JsonUtil from "utils/JsonUtil";
 import CBConstant from "constants/CBConstant";
 import colors from "configs/colors";
 
-export default class ConfirmPassword extends Base {
+export default class EmailSeedKey extends Base {
 
     constructor(props) {
         super(props);
@@ -26,8 +26,8 @@ export default class ConfirmPassword extends Base {
         RootNavigation.goBack();
     };
 
-    onConfirmPassword = () => {
-        RootNavigation.navigate('EmailSeedKey');
+    onHomeScreen = () => {
+        RootNavigation.navigate('Home');
     };
 
     onTermsAndConditions = () => {
@@ -48,20 +48,20 @@ export default class ConfirmPassword extends Base {
                         <CBView style={[appStyles.row, {marginTop: 20, marginLeft: 18}]} define={'none'}>
                             <CBIcon type={'material-community'} name={'numeric-1-circle-outline'} color={colors.disableGray} size={24}/>
                             <CBView style={[appStyles.stroke, {width: 110, backgroundColor: colors.disableGray, marginVertical: 5}]} define={'none'}/>
-                            <CBIcon type={'material-community'} name={'numeric-2-circle-outline'} color={colors.primaryColor} size={24}/>
+                            <CBIcon type={'material-community'} name={'numeric-2-circle-outline'} color={colors.disableGray} size={24}/>
                             <CBView style={[appStyles.stroke, {width: 110, backgroundColor: colors.disableGray, marginVertical: 5}]} define={'none'}/>
-                            <CBIcon type={'material-community'} name={'numeric-3-circle-outline'} color={colors.disableGray} size={24}/>
+                            <CBIcon type={'material-community'} name={'numeric-3-circle-outline'} color={colors.primaryColor} size={24}/>
                         </CBView>
                         <CBView style={[appStyles.row, {marginTop: 10}]} define={'none'}>
                             <CBText style={[appStyles.note_text, {color: colors.disableGray}]}>{strings('text_create_password')}</CBText>
-                            <CBText style={[appStyles.note_text, {marginLeft: 45, color: colors.primaryColor}]}>{strings('text_wallet_security')}</CBText>
-                            <CBText style={[appStyles.note_text, {marginLeft: 40, color: colors.disableGray}]}>{strings('text_confirm_srp')}</CBText>
+                            <CBText style={[appStyles.note_text, {marginLeft: 45, color: colors.disableGray}]}>{strings('text_wallet_security')}</CBText>
+                            <CBText style={[appStyles.note_text, {marginLeft: 40, color: colors.primaryColor}]}>{strings('text_confirm_srp')}</CBText>
                         </CBView>
-                        <CBText style={[appStyles.title, { marginTop: 30}]} >{strings('text_confirm_password')}</CBText>
-                        <CBText style={[appStyles.note_text, {marginTop: 10}]} define={'subtext'}>{strings('text_note_confirm_password')}</CBText>
+                        <CBText style={[appStyles.title, { marginTop: 30}]} >{strings('text_email')}</CBText>
+                        <CBText style={[appStyles.note_text, {marginTop: 10}]} define={'subtext'}>{strings('text_note_seed_key')}</CBText>
                         <CBInput
                             containerStyle={{marginTop: 30}}
-                            placeholder={strings('placeholder_confirm_password')}
+                            placeholder={strings('placeholder_email_input')}
                             returnKeyType={'go'}
                             keyboardType={'phone-pad'}
                             autoCapitalize={'none'}
@@ -71,8 +71,8 @@ export default class ConfirmPassword extends Base {
                             //onChangeText={handleChange('phoneNumber')}
                             //onSubmitEditing={handleSubmit}
                         />
-                        <CBButton buttonStyle={[appStyles.button, {marginTop: 30}]} title={strings('button_confirm')} onPress={this.onConfirmPassword} />
-                        <CBAction style={{alignSelf: 'center', marginTop: 265}} title={strings('action_terms_and_conditions')} onPress={this.onTermsAndConditions}/>
+                        <CBButton buttonStyle={[appStyles.button, {marginTop: 260}]} title={strings('button_confirm')} onPress={this.onHomeScreen} />
+                        <CBAction style={{alignSelf: 'center', marginTop: 35}} title={strings('action_terms_and_conditions')} onPress={this.onTermsAndConditions}/>
                     </CBView>
                 </CBTouchableWithoutFeedback>
                 <CBTouchableOpacity style={[appStyles.action, {position: 'absolute', top: 5, left: 8}]} define={'none'} onPress={this.onClose}>

@@ -59,6 +59,7 @@ export default {
     lightBackground: '#F7F7F7',
     green: '#27AE60',
     lightGreen: '#EEFBF4',
+    semired: '#CA141F',
     red: '#FF0000',
     lightRed: '#FDEDED',
     palletes1: '#23049d',
