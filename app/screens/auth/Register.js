@@ -32,6 +32,10 @@ export default class Register extends Base {
         })
     }
 
+    onWalletSecurity = () => {
+        RootNavigation.navigate('WalletSecurity');
+    };
+
     onTermsAndConditions = () => {
         RootNavigation.navigate('Web', {
             title: strings('screen_terms_and_conditions'),
@@ -103,9 +107,8 @@ export default class Register extends Base {
                             <CBTouchableOpacity onPress={this.onTermsAndConditions}>
                                 <CBText style={[appStyles.note_text, {color: colors.darkTurquoise, marginTop: 5}]}>{strings('text_more_information')}</CBText>
                             </CBTouchableOpacity>
-
                         </CBView>
-                        <CBButton buttonStyle={[appStyles.button, {marginTop: 35}]} title={strings('text_create_password')} />
+                        <CBButton buttonStyle={[appStyles.button, {marginTop: 35}]} title={strings('text_create_password')} onPress={this.onWalletSecurity} />
                         <CBAction style={{alignSelf: 'center', marginTop: 30}} title={strings('action_terms_and_conditions')} onPress={this.onTermsAndConditions}/>
                     </CBView>
                 </CBTouchableWithoutFeedback>

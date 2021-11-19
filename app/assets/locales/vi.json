@@ -6,6 +6,10 @@
   "action_skip": "Bỏ qua",
   "action_resend": "Gửi lại",
   "action_terms_and_conditions": "Điều khoản và Điều kiện",
+  "NO": "Không",
+  "no_really": "Không",
+  "account": "Tài khoản",
+  "YES": "Có",
 
   "button_ok": "Đồng ý",
   "button_cancel": "Hủy",
@@ -21,6 +25,7 @@
   "button_login": "Đăng nhập",
   "button_start": "Bắt đầu",
   "button_verify": "Xác thực",
+  "button_confirm": "Xác nhận",
 
   "error_valid_phone_number": "Số điện thoại không đúng định dạng",
   "error_empty_phone_number": "Vui lòng nhập số điện thoại",
@@ -30,6 +35,9 @@
   "input_phone_number": "Số điện thoại",
 
   "placeholder_phone_number": "Nhập số điện thoại",
+  "placeholder_confirm_password": "Mật khẩu",
+  "placeholder_new_password": "Mật khẩu mới",
+  "placeholder_confirm_new_password": "Xác nhận mật khẩu",
 
   "toast_copied": "Sao chép thành công!",
   "toast_resend": "Gửi lại thành công!",
@@ -58,6 +66,12 @@
   "text_not_receive_code": "Tôi chưa nhận được mã bảo mật?",
   "text_resend_code": "Yêu cầu mã mới trong {0} giây",
   "text_create_password": "Tạo mật khẩu",
+  "text_protect_wallet": "Bảo mật ví của bạn",
+  "text_remind_later": "Nhắc tôi sau",
+  "text_confirm_password": "Xác nhận \nmật khẩu của bạn",
+  "text_note_confirm_password": "Trước khi bắt đầu chúng tôi muốn bạn xác nhận \nlại mật khẩu của mình",
+  "text_wallet_security": "Bảo mật Wallet",
+  "text_confirm_srp": "Xác nhận Secret\nRecovery Phrase",
   "text_my_school": "Trường học của tôi",
 
   "screen_empty": "Code Base",
