@@ -33,6 +33,7 @@ import * as yup from 'yup';
 
 import Base from 'screens/Base';
 import dimens from "configs/dimens";
+import EventTracker from "controls/EventTracker";
 
 export default class LoginOrReset extends Base {
 
@@ -54,13 +55,13 @@ export default class LoginOrReset extends Base {
         super.componentDidMount();
         this.keyboardDidShowSubscription = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
         this.keyboardDidHideSubscription = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
-    }
+    };
 
     componentWillUnmount() {
         super.componentWillUnmount();
         this.keyboardDidShowSubscription.remove();
         this.keyboardDidHideSubscription.remove();
-    }
+    };
 
     keyboardDidShow = () => {
         this.setState({
@@ -76,11 +77,9 @@ export default class LoginOrReset extends Base {
 
     onLogin = () => {
         RootNavigation.navigate('Home');
+        EventTracker.logEvent('screen_login_or_reset', {action: 'click_login'});
     };
 
-    onAuthScreen = () => {
-        RootNavigation.navigate('AuthScreen');
-    }
 
     onBlur = () => {
         Keyboard.dismiss();
@@ -180,11 +179,7 @@ export default class LoginOrReset extends Base {
     //Bug cho nay
     onResetWallet = () => {
         const {theme} = this.context;
-        this.cbResetWallet.current.show({
-            buttons: [
-                {title: strings('action_agree_reset_wallet'), onPress: this.onAuthScreen}
-            ]
-        });
+        this.cbResetWallet.current.show({});
     };
 
     onTermsAndConditions = () => {
