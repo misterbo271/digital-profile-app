@@ -1,9 +1,9 @@
 import React from 'react';
 import {CBAction, CBButton, CBInput, CBCheckBox, CBView, CBContainer, CBText, CBTouchableWithoutFeedback, CBIcon, CBTouchableOpacity} from 'components';
 import {appStyles} from 'configs/styles';
-
+import Parse from "parse/react-native";
 import Base from 'screens/Base';
-import {Keyboard} from "react-native";
+import {Alert, Keyboard} from "react-native";
 import RootNavigation from "screens/RootNavigation";
 import {strings} from "controls/i18n";
 import JsonUtil from "utils/JsonUtil";
@@ -15,9 +15,41 @@ export default class Register extends Base {
     constructor(props) {
         super(props);
         this.state = {
-            checked: false
+            checked: false,
+            password: ''
         }
     }
+
+    onCreatePassword = async () => {
+        const {password} = this.state;
+        // Note that these values come from state variables that we've declared before
+        const passwordValue = password;
+        const usernameValue = 'test';
+        // Since the signUp method returns a Promise, we need to call it using await
+        return await Parse.User.signUp(usernameValue, passwordValue)
+            .then((createdUser) => {
+                // Parse.User.signUp returns the already created ParseUser object if successful
+                Alert.alert(
+                    "Success!",
+                    `User ${createdUser.get("password")} was successfully created!`
+                );
+                return true;
+            })
+            .catch((error) => {
+                // signUp can fail if any parameter is blank or failed an uniqueness check on the server
+                Alert.alert("Error!", error.message);
+                return false;
+            });
+
+        //RootNavigation.navigate('WalletSecurity');
+    };
+
+    handleSetPassword = (text) => {
+        this.setState({
+            password: text
+        })
+    }
+
     onBlur = () => {
         Keyboard.dismiss();
     };
@@ -46,7 +78,9 @@ export default class Register extends Base {
     };
 
     render() {
-        const {checked} = this.state;
+        const {checked, password} = this.state;
+        const mnemonicWords = require('mnemonic-words');
+        //console.log(`mienpv :: ${JSON.stringify(mnemonicWords)}`);
         return (
             <CBContainer>
                 <CBTouchableWithoutFeedback style={{flex: 1}} define={'none'} onPress={this.onBlur}>
@@ -73,9 +107,9 @@ export default class Register extends Base {
                             keyboardType={'phone-pad'}
                             autoCapitalize={'none'}
                             maxLength={16}
-                            //value={values.phoneNumber}
+                            value={password}
                             //errorMessage={errors.phoneNumber}
-                            //onChangeText={handleChange('phoneNumber')}
+                            onChangeText={(text) => this.handleSetPassword(text)}
                             //onSubmitEditing={handleSubmit}
                         />
                         <CBInput
@@ -108,7 +142,7 @@ export default class Register extends Base {
                                 <CBText style={[appStyles.note_text, {color: colors.darkTurquoise, marginTop: 5}]}>{strings('text_more_information')}</CBText>
                             </CBTouchableOpacity>
                         </CBView>
-                        <CBButton buttonStyle={[appStyles.button, {marginTop: 35}]} title={strings('text_create_password')} onPress={this.onWalletSecurity} />
+                        <CBButton buttonStyle={[appStyles.button, {marginTop: 35}]} title={strings('text_create_password')} onPress={() => this.onCreatePassword()} />
                         <CBAction style={{alignSelf: 'center', marginTop: 30}} title={strings('action_terms_and_conditions')} onPress={this.onTermsAndConditions}/>
                     </CBView>
                 </CBTouchableWithoutFeedback>
