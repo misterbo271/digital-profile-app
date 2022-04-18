@@ -19,6 +19,7 @@ import {ModalPortal} from 'react-native-modals';
 import DeviceInfo from 'react-native-device-info';
 import {Settings} from 'react-native-fbsdk-next';
 import OneSignal from 'react-native-onesignal';
+import Parse from 'parse/react-native.js';
 import {helpers} from 'configs/themes';
 import {strings} from 'controls/i18n';
 import colors from 'configs/colors';
@@ -63,6 +64,9 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
+        Parse.setAsyncStorage(AsyncStorage);
+        Parse.initialize(CBConfig.BACK_4_APP_APPLICATION_ID, CBConfig.BACK_4_APP_JAVASCRIPT_KEY);
+        Parse.serverURL = CBConfig.BACK_4_APP_URL;
         Settings.initializeSDK();
         this.navigationRef = React.createRef();
         this.routeNameRef = React.createRef();
