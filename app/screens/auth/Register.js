@@ -24,7 +24,7 @@ export default class Register extends Base {
         const {password} = this.state;
         // Note that these values come from state variables that we've declared before
         const passwordValue = password;
-        const usernameValue = 'test';
+        const usernameValue = 'test1';
         // Since the signUp method returns a Promise, we need to call it using await
         return await Parse.User.signUp(usernameValue, passwordValue)
             .then((createdUser) => {
@@ -33,6 +33,7 @@ export default class Register extends Base {
                     "Success!",
                     `User ${createdUser.get("password")} was successfully created!`
                 );
+                RootNavigation.navigate('WalletSecurity');
                 return true;
             })
             .catch((error) => {
