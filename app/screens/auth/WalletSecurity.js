@@ -9,15 +9,37 @@ import {strings} from "controls/i18n";
 import JsonUtil from "utils/JsonUtil";
 import CBConstant from "constants/CBConstant";
 import colors from "configs/colors";
+import EventTracker from "controls/EventTracker";
+import mnemonicWords from "mnemonic-words";
 
 export default class WalletSecurity extends Base {
 
     constructor(props) {
         super(props);
         this.state = {
-            checked: false
+            checked: false,
+            password: '',
+            checkPassword: false,
+            srp: []
         }
     }
+
+    componentDidMount() {
+        super.componentDidMount();
+        this.load();
+    }
+
+    componentWillUnmount() {
+        super.componentWillUnmount();
+    }
+
+    load() {
+        const password = this.defaultParam?.password || '';
+        this.setState({
+            password: password
+        })
+    }
+
     onBlur = () => {
         Keyboard.dismiss();
     };
@@ -28,6 +50,7 @@ export default class WalletSecurity extends Base {
 
     onConfirmPassword = () => {
         RootNavigation.navigate('ConfirmPassword');
+        EventTracker.logEvent('screen_wallet_security', {action: 'click_tab_confirm_password'});
     };
 
     onTermsAndConditions = () => {
@@ -37,9 +60,12 @@ export default class WalletSecurity extends Base {
                 uri: CBConstant.URI_TERMS_AND_CONDITIONS
             })
         });
+        EventTracker.logEvent('screen_wallet_security', {action: 'click_webview_terms_and_conditions'});
     };
 
     render() {
+        const {password} = this.state;
+        // console.log(`mienpv :: ${JSON.stringify(password)}`);
         return (
             <CBContainer>
                 <CBTouchableWithoutFeedback style={{flex: 1}} define={'none'} onPress={this.onBlur}>
