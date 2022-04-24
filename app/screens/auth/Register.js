@@ -28,17 +28,19 @@ export default class Register extends Base {
     }
 
     onCreatePassword = async () => {
-        const {password} = this.state;
+        const {password, rsp} = this.state;
         // Note that these values come from state variables that we've declared before
+        const usernameValue = "test2";
         const passwordValue = password;
-        const SRPValue = ["test1", "test2", "test3", "test4", "test5", "test6", "test7"];
+        const SRPValue = rsp;
+        console.log(`mienpv :: ${JSON.stringify(SRPValue)}`);
         // Since the signUp method returns a Promise, we need to call it using await
-        return await Parse.Query('Profile')
+        return await Parse.User.signUp(usernameValue, passwordValue, SRPValue)
             .then((createdUser) => {
                 // Parse.User.signUp returns the already created ParseUser object if successful
                 Alert.alert(
                     "Success!",
-                    `User ${createdUser.get("password")} was successfully created!`
+                    `User ${createdUser.get("username")} was successfully created!`
                 );
                 RootNavigation.navigate('Home');
                 return true;
@@ -48,8 +50,6 @@ export default class Register extends Base {
                 Alert.alert("Error!", error.message);
                 return false;
             });
-
-        //RootNavigation.navigate('WalletSecurity');
     };
 
     handleSetPassword = (text) => {
@@ -117,7 +117,6 @@ export default class Register extends Base {
 
     render() {
         const {tab, checked, password, checkPassword, rsp} = this.state;
-        console.log(`mienpv :: ${JSON.stringify(rsp)}`);
         return (
             <CBContainer>
                 {tab === 0 ? <CBTouchableWithoutFeedback style={{flex: 1}} define={'none'} onPress={this.onBlur}>
@@ -350,7 +349,7 @@ export default class Register extends Base {
                             </CBView>
                         </CBTouchableWithoutFeedback> : null}
                 {tab !== 1 ? <CBView>
-                    <CBButton disabled={checked === false ? true : false} buttonStyle={[appStyles.button, {marginLeft: 35, width: dimens.widthScreen / 1.2, marginTop: 50}]} title={tab === 0 ? strings('text_create_password') : strings('button_confirm') } onPress={tab === 0 ? this.onTabChange(1) : this.onHomeScreen} />
+                    <CBButton disabled={checked === false ? true : false} buttonStyle={[appStyles.button, {marginLeft: 35, width: dimens.widthScreen / 1.2, marginTop: 50}]} title={tab === 0 ? strings('text_create_password') : strings('button_confirm') } onPress={tab === 0 ? this.onTabChange(1) : this.onCreatePassword} />
                 </CBView> :
                     <CBView>
                         {checkPassword === false ? <CBButton buttonStyle={[appStyles.button, {marginLeft: 35, width: dimens.widthScreen / 1.2, marginTop: 50}]} title={ strings('button_confirm')} onPress={this.onConfirmPassword} /> : <CBButton buttonStyle={[appStyles.button, {marginLeft: 35, width: dimens.widthScreen / 1.2, marginTop: 50}]} title={ strings('button_confirm')} onPress={this.onTabChange(2)} /> }
