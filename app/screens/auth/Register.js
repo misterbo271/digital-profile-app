@@ -72,15 +72,10 @@ export default class Register extends Base {
 
     onConfirmPassword = () => {
         const mnemonicWords = require('mnemonic-words');
-        let rand1 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        let rand2 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        let rand3 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        let rand4 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        let rand5 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        let rand6 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        let rand7 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        let rand8 = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
-        const rand = [rand1, rand2, rand3, rand4, rand5, rand6, rand7, rand8]
+        let rand = [];
+        for ( let i=0; i < 9; i++) {
+            rand[i] = mnemonicWords[Math.floor(Math.random() * mnemonicWords.length)];
+        }
         this.setState({
             checkPassword: true,
             rsp: rand
@@ -95,16 +90,6 @@ export default class Register extends Base {
 
     onHomeScreen = () => {
         RootNavigation.navigate('Home');
-    };
-
-    onWalletSecurity = () => {
-        const {password} = this.state;
-        RootNavigation.navigate('WalletSecurity', {
-            defaultParam: JsonUtil.buildDefaultParam({
-                password: password
-            })
-        });
-        EventTracker.logEvent('screen_register', {action: 'click_tab_wallet_security'});
     };
 
     onTermsAndConditions = () => {
