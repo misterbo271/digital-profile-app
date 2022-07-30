@@ -20,6 +20,7 @@ import EmailSeedKey from "screens/auth/EmailSeedKey";
 import Register from "screens/auth/Register";
 import SRPLogin from "screens/auth/SRPLogin";
 import Verify from 'screens/auth/Verify';
+import ClaimDetail from "screens/ClaimScreen/ClaimDetail";
 
 const Stack = createStackNavigator();
 export const UserStack = () => {
@@ -65,6 +66,7 @@ export const UserStack = () => {
             <Stack.Screen name={'Introduction'} component={Introduction} options={{...TransitionPresets.ModalSlideFromBottomIOS, headerShown: false}}/>
             <Stack.Screen name={'LoginOrRegister'} component={LoginOrRegister} options={{...TransitionPresets.ModalSlideFromBottomIOS, headerShown: false}}/>
             <Stack.Screen name={'Verify'} component={Verify} options={{headerShown: false}}/>
+            <Stack.Screen name={'ClaimDetail'} component={ClaimDetail} options={{title: 'Claim Detail'}}/>
         </Stack.Navigator>
     );
 };

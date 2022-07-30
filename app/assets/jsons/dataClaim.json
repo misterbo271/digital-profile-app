@@ -1,0 +1,5 @@
+[
+  { "id": "1", "claimType" : "Student", "issuer": "Ho Chi Minh University of Technology", "schema": "https://www.google.com/", "action": "KeyScreen Added", "from": "2/9/2022", "to": "2/9/2023" , "description" :"Cryptocurrentcy Cerification Consortium (C4)"},
+  { "id": "2", "claimType" : "Dev", "issuer": "Chainlink Foundation", "schema": "https://www.google.com/", "action": "KeyScreen Added", "from": "2/9/2022", "to": "2/9/2025" , "description" :"Top Quanlity Project Winner"},
+  { "id": "3", "claimType" : "Project Manager", "issuer": "Apple Inc", "schema": "https://www.google.com/", "action": "KeyScreen Added", "from": "7/3/2018", "to": "present" , "description" :"Project Manager of Apple"}
+]

@@ -9,6 +9,7 @@ import {ClaimItem, ClaimSkeleton} from "screens/manage/item/ClaimItem";
 import {FlatList} from "react-native";
 import {removeAlias} from "utils/LanguageUtil";
 import {debounce} from "lodash";
+import JsonUtil from "utils/JsonUtil";
 
 const dataTest = [
     { "id": "1", "claimType" : "Student", "issuer": "Ho Chi Minh University of Technology", "schema": "https://www.google.com/", "action": "KeyScreen Added", "from": "2/9/2022", "to": "2/9/2023" , "description" :"Cryptocurrentcy Cerification Consortium (C4)"},
@@ -45,6 +46,15 @@ export default class ClaimScreen extends Base {
 
     onSearchDebounce = debounce(this.onSearch, 600, {leading: false, trailing: true});
 
+    onPress = (item) => () => {
+        RootNavigation.navigate('ClaimDetail', {
+            defaultParam: JsonUtil.buildDefaultParam({
+                claim: item
+            })
+        });
+        EventTracker.logEvent('screen_claim', {action: 'click_claim'});
+    };
+
     onChangeText = (keyword) => {
         this.setState({
             loading: keyword.length > 0,
@@ -55,7 +65,7 @@ export default class ClaimScreen extends Base {
     renderItem = ({item, index}) => {
         const {loading} = this.state;
         const ClaimComp = loading ? ClaimSkeleton : ClaimItem;
-        return <ClaimComp key={index} index={index} claim={item}/>;
+        return <ClaimComp key={index} index={index} claim={item} onPress={this.onPress(item)}/>;
     };
 
 

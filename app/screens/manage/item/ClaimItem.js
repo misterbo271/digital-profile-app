@@ -39,7 +39,7 @@ const ClaimItem = React.memo(({index, claim, onPress, onPressPopup}) => {
 
     return (
         <CBShadow key={index} style={{backgroundColor: theme.colors.background}}>
-            <CBTouchableOpacity style={{padding: 15}} define={'none'}>
+            <CBTouchableOpacity style={{padding: 15}} define={'none'} onPress={onPress}>
                 <CBView key={index} define={'none'}>
                     <CBView style={[appStyles.item, {padding: 0}]} define={'none'}>
                         <CBView style={[appStyles.row]}>
@@ -51,7 +51,7 @@ const ClaimItem = React.memo(({index, claim, onPress, onPressPopup}) => {
                                 />
                             </CBView>
                             <CBView style={{marginLeft: 20}}>
-                                <CBTouchableOpacity  define={'none'} onPress={onPress}>
+                                <CBTouchableOpacity  define={'none'}>
                                     <CBText style={[appStyles.text, {fontSize: dimens.largeText, fontFamily: 'GoogleSans-Bold', color: theme.colors.primary}]} define={'none'}>
                                         {claim?.claimType}
                                     </CBText>
