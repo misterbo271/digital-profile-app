@@ -117,6 +117,8 @@ export default class Register extends Base {
 
     render() {
         const {tab, checked, password, checkPassword, rsp} = this.state;
+        const test = rsp?.toString();
+        console.log(`mienpv :: ${JSON.stringify(test)}`);
         return (
             <CBContainer>
                 {tab === 0 ? <CBTouchableWithoutFeedback style={{flex: 1}} define={'none'} onPress={this.onBlur}>

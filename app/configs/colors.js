@@ -53,6 +53,7 @@ export default {
     blue: '#2474E5',
     mediumBlue: '#7FAEF0',
     darkBlue: '#061B37',
+    ocean: '#E6F6FF',
     skyBlue: '#005596',
     lightBlue: '#EDF3FD',
     lightBorder: '#E0E0E0',

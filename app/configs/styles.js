@@ -327,7 +327,7 @@ export const appStyles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: 72,
+        //minHeight: 72,
         paddingTop: 23,
         paddingBottom: 18,
         paddingHorizontal: 35,
@@ -403,9 +403,7 @@ export const appStyles = StyleSheet.create({
         fontWeight: 'bold',
         marginRight: 35,
         color: '#005596',
-        letterSpacing: -0.3,
-        fontSize: 20,
-        lineHeight: 20
+        letterSpacing: -0.3
     },
     subInformationContainer: {
         flexDirection: 'row',

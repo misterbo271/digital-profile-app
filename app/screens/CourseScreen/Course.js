@@ -9,7 +9,7 @@ export default class Course extends Base {
     render() {
         return (
             <CBContainer style={{alignItems: 'center', justifyContent: 'center'}}>
-                <CBText style={appStyles.text} define={'text'}>{'Course'}</CBText>
+                <CBText style={appStyles.text} define={'text'}>{'Claim'}</CBText>
             </CBContainer>
         );
     }
