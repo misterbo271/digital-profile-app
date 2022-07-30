@@ -23,8 +23,8 @@ const Home = () => {
     const renderTabBarIcon = (name) => ({focused}) => {
         return (
             <CBView style={{position: 'absolute', top: 15}} define={'none'}>
-                <CBIcon type={'material-community'} name={name} color={focused ? primaryColor : iconColor} size={28}/>
-                <CBIcon type={'material-community'} name={'checkbox-blank-circle'} color={focused ? primaryColor : backgroundColor} size={6}/>
+                <CBIcon type={'ionicon'} name={name} color={focused ? primaryColor : iconColor} size={28}/>
+                <CBIcon type={'ionicon'} name={'ellipse'} color={focused ? primaryColor : backgroundColor} size={6}/>
             </CBView>
         );
     };
@@ -53,11 +53,11 @@ const Home = () => {
                     borderRadius: 30
                 }]
             }}>
-            <Tab.Screen name={'HomeScreen'} component={HomeScreen} options={{headerShown: false, tabBarIcon: renderTabBarIcon('home-edit-outline')}}/>
-            <Tab.Screen name={'Course'} component={Course} options={{headerShown: false, tabBarIcon: renderTabBarIcon('school-outline')}}/>
+            <Tab.Screen name={'HomeScreen'} component={HomeScreen} options={{headerShown: false, tabBarIcon: renderTabBarIcon('home-outline')}}/>
+            <Tab.Screen name={'Course'} component={Course} options={{headerShown: false, tabBarIcon: renderTabBarIcon('reader-outline')}}/>
             <Tab.Screen name={'QRScan'} component={QRScan} options={{headerShown: false, tabBarIcon: renderCenterTabBarIcon('qrcode-scan')}}/>
-            <Tab.Screen name={'Certification'} component={Certification} options={{headerShown: false, tabBarIcon: renderTabBarIcon('certificate-outline')}}/>
-            <Tab.Screen name={'Profile'} component={Profile} options={{headerShown: false, tabBarIcon: renderTabBarIcon('account-circle-outline')}}/>
+            <Tab.Screen name={'Certification'} component={Certification} options={{headerShown: false, tabBarIcon: renderTabBarIcon('key-outline')}}/>
+            <Tab.Screen name={'Profile'} component={Profile} options={{headerShown: false, tabBarIcon: renderTabBarIcon('person-outline')}}/>
         </Tab.Navigator>
     );
 };

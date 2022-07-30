@@ -1,5 +1,5 @@
 import React from 'react';
-import {CBAvatar, CBContainer, CBIcon, CBText, CBView} from 'components';
+import {CBAvatar, CBContainer, CBDivider, CBIcon, CBText, CBView} from 'components';
 import {appStyles} from 'configs/styles';
 
 import Base from 'screens/Base';
@@ -13,16 +13,56 @@ const dataTest = [
     {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
     {"type" : "KeyClaim", "header": "Claim Added", "message": "You added @bku claim on 24/12/2000", "isRead": true },
     {"type" : "KeyClaim", "header": "Claim Added", "message": "You added @bku claim on 24/12/2000", "isRead": false },
+    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
+    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
+    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
     {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false }
 ]
 
 export default class HomeScreen extends Base {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            keyword: '',
+            loading: false,
+            refreshing: false
+        };
+    }
+
+    componentDidMount() {
+        super.componentDidMount();
+        //this.notificationSubscription = DeviceEventEmitter.addListener('SYNC_NOTIFICATION', this.loadNotificationEvent);
+    }
+
+    componentWillUnmount() {
+        super.componentWillUnmount();
+       //this.notificationSubscription.remove();
+    }
 
     renderEmployeeItem = ({item, index}) => {
         //const {loading} = EmployeeStore;
         const NotificationComp = NotificationItem;
         return <NotificationComp key={index} index={index} notification={item}/>;
     };
+
+    renderItem = ({item, index}) => {
+        const {loading} = this.state;
+        const NotificationComp = loading ? NotificationSkeleton : NotificationItem;
+        return <NotificationComp key={index} index={index} notification={item}/>;
+    };
+
+    renderSeparator = () => {
+        return <CBDivider style={{marginHorizontal: 15}}/>;
+    };
+
+    keyExtractor = (item, index) => String(index);
+
+    // onRefresh = () => {
+    //     this.setState({
+    //         refreshing: true
+    //     });
+    // };
 
     render() {
         return (
@@ -34,7 +74,7 @@ export default class HomeScreen extends Base {
                     <View style={[appStyles.userInfo]}>
                         <View style={appStyles.mid}>
                                 <Text style={[appStyles.fullName, {fontSize: dimens.xxxLargeText, marginTop: 5}]}>
-                                    Good Morning!
+                                    Have a good day!
                                 </Text>
 
                             <View style={appStyles.subInformationContainer}>
@@ -59,10 +99,10 @@ export default class HomeScreen extends Base {
                             keyboardShouldPersistTaps={'always'}
                             //refreshing={refreshing}
                             data={dataTest}
-                            renderItem={this.renderEmployeeItem}
+                            renderItem={this.renderItem}
                             ItemSeparatorComponent={this.renderSeparator}
                             keyExtractor={this.keyExtractor}
-                            onRefresh={this.onRefresh}
+                            //onRefresh={this.onRefresh}
                         />
                 </CBView>
 
