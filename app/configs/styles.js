@@ -5,6 +5,15 @@ import colors from 'configs/colors';
 import dimens from 'configs/dimens';
 
 export const appStyles = StyleSheet.create({
+    status: {
+        width: '100%',
+        height: dimens.appBar,
+        backgroundColor: colors.statusBarColor,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 999
+    },
     container: {
         flex: 1,
         backgroundColor: colors.contentColor
@@ -45,6 +54,18 @@ export const appStyles = StyleSheet.create({
     center: {
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    h1: {
+        fontSize: dimens.largeText,
+        color: colors.primaryTextColor,
+        fontFamily: 'GoogleSans-Bold',
+        textAlign: 'center'
+    },
+    h2: {
+        fontSize: dimens.normalText,
+        color: colors.primaryTextColor,
+        fontFamily: 'GoogleSans-Regular',
+        textAlign: 'center'
     },
     heading_1: {
         fontSize: dimens.xxxLargeText,
@@ -416,5 +437,176 @@ export const appStyles = StyleSheet.create({
         color: '#474747',
         letterSpacing: 0.1,
         marginLeft: 4
+    },
+    logo: {
+        width: moderateScale(40),
+        height: moderateScale(60)
+    },
+    wrapper: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    symbol: {
+        width: moderateScale(45),
+        height: moderateScale(45),
+        resizeMode: 'contain'
+    },
+    blockquote: {
+        fontSize: dimens.smallText,
+        color: colors.secondaryTextColor,
+        fontFamily: 'GoogleSans-Regular'
+    },
+    letter: {
+        fontSize: dimens.atomText,
+        color: colors.secondaryTextColor,
+        fontFamily: 'GoogleSans-Regular'
+    },
+    wrap: {
+        flexDirection: 'row',
+        flexWrap: 'wrap'
+    },
+    dropdown: {
+        padding: 5,
+        backgroundColor: colors.backgroundColor,
+        borderWidth: 0
+    },
+    chip: {
+        height: 35,
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: colors.backgroundColor,
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderRadius: 20
+    },
+    tag: {
+        backgroundColor: colors.backgroundColor,
+        paddingVertical: 8,
+        paddingHorizontal: 15,
+        borderRadius: 24,
+        marginTop: 10,
+        marginRight: 10
+    },
+    mark: {
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        borderRadius: 4
+    },
+    active: {
+        backgroundColor: colors.activeTagColor
+    },
+    highlight: {
+        color: colors.primaryColor,
+        fontFamily: 'GoogleSans-Bold'
+    },
+    space: {
+        height: 10,
+        backgroundColor: colors.hideColor
+    },
+    sphere: {
+        width: 50,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 25
+    },
+    wave: {
+        position: 'absolute',
+        alignSelf: 'center',
+        width: '100%',
+        height: 41,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: colors.lineColor
+    },
+    tab: {
+        backgroundColor: colors.contentColor,
+        borderTopWidth: 10,
+        borderBottomWidth: 10,
+        borderColor: colors.hideColor,
+        shadowOpacity: 0,
+        elevation: 0
+    },
+    toast: {
+        position: 'absolute',
+        bottom: 15,
+        alignSelf: 'center',
+        backgroundColor: colors.primaryTextColor,
+        paddingVertical: 5,
+        paddingHorizontal: 15,
+        borderRadius: 20
+    },
+    bottom: {
+        borderWidth: 1,
+        borderColor: colors.lineColor,
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0
+    },
+    search: {
+        backgroundColor: colors.backgroundColor,
+        borderRadius: 20,
+        borderWidth: 0
+    },
+    box: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderColor: colors.lineColor
+    },
+    case: {
+        borderWidth: 1,
+        borderRadius: 4
+    },
+    lonely: {
+        height: 40
+    },
+    many: {
+        minHeight: 30,
+        maxHeight: 120
+    },
+    single: {
+        height: 40
+    },
+    multiple: {
+        minHeight: 30,
+        maxHeight: 120,
+        marginVertical: 5,
+        textAlignVertical: 'top'
+    },
+    seat: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 4,
+        borderRadius: 4,
+        borderColor: colors.primaryTextColor
+    },
+    triangle: {
+        position: 'absolute',
+        top: -1,
+        right: -1,
+        width: 0,
+        height: 0,
+        borderBottomWidth: 13,
+        borderRightWidth: 13,
+        borderBottomColor: 'transparent',
+        borderRightColor: colors.primaryTextColor
+    },
+    outline: {
+        backgroundColor: colors.contentColor,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: colors.lineColor
+    },
+    metric: {
+        padding: 10,
+        borderRadius: 4,
+        justifyContent: 'space-between'
+    },
+    extend: {
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });

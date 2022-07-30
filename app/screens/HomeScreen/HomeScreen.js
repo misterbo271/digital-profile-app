@@ -10,13 +10,13 @@ import dimens from "configs/dimens";
 import {NotificationItem, NotificationSkeleton} from "screens/manage/item/NotificationItem";
 
 const dataTest = [
-    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
-    {"type" : "KeyClaim", "header": "Claim Added", "message": "You added @bku claim on 24/12/2000", "isRead": true },
-    {"type" : "KeyClaim", "header": "Claim Added", "message": "You added @bku claim on 24/12/2000", "isRead": false },
-    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
-    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
-    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
-    {"type" : "KeyNoti", "header": "Key Added", "message": "You added @bku key on 24/12/2000", "isRead": false }
+    {"type" : "KeyNoti", "header": "KeyScreen Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
+    {"type" : "KeyClaim", "header": "KeyScreen Added", "message": "You added @bku claim on 24/12/2000", "isRead": true },
+    {"type" : "KeyClaim", "header": "KeyScreen Added", "message": "You added @bku claim on 24/12/2000", "isRead": false },
+    {"type" : "KeyNoti", "header": "KeyScreen Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
+    {"type" : "KeyNoti", "header": "KeyScreen Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
+    {"type" : "KeyNoti", "header": "KeyScreen Added", "message": "You added @bku key on 24/12/2000", "isRead": false },
+    {"type" : "KeyNoti", "header": "KeyScreen Added", "message": "You added @bku key on 24/12/2000", "isRead": false }
 ]
 
 export default class HomeScreen extends Base {

@@ -7,9 +7,9 @@ import {helpers} from 'configs/themes';
 import dimens from 'configs/dimens';
 
 import HomeScreen from 'screens/HomeScreen/HomeScreen';
-import Course from 'screens/CourseScreen/Course';
+import ClaimScreen from 'screens/ClaimScreen/ClaimScreen';
 import QRScan from 'screens/QRScan/QRScan';
-import Certification from 'screens/Certification/Certification';
+import KeyScreen from 'screens/KeyScreen/KeyScreen';
 import Profile from 'screens/Profile/Profile';
 import Login from 'screens/login/Login';
 
@@ -54,9 +54,9 @@ const Home = () => {
                 }]
             }}>
             <Tab.Screen name={'HomeScreen'} component={HomeScreen} options={{headerShown: false, tabBarIcon: renderTabBarIcon('home-outline')}}/>
-            <Tab.Screen name={'Course'} component={Course} options={{headerShown: false, tabBarIcon: renderTabBarIcon('reader-outline')}}/>
+            <Tab.Screen name={'ClaimScreen'} component={ClaimScreen} options={{headerShown: false, tabBarIcon: renderTabBarIcon('reader-outline')}}/>
             <Tab.Screen name={'QRScan'} component={QRScan} options={{headerShown: false, tabBarIcon: renderCenterTabBarIcon('qrcode-scan')}}/>
-            <Tab.Screen name={'Certification'} component={Certification} options={{headerShown: false, tabBarIcon: renderTabBarIcon('key-outline')}}/>
+            <Tab.Screen name={'KeyScreen'} component={KeyScreen} options={{headerShown: false, tabBarIcon: renderTabBarIcon('key-outline')}}/>
             <Tab.Screen name={'Profile'} component={Profile} options={{headerShown: false, tabBarIcon: renderTabBarIcon('person-outline')}}/>
         </Tab.Navigator>
     );

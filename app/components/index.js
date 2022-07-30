@@ -38,6 +38,7 @@ import CBTooltip from 'components/CBTooltip';
 import CBTouchableOpacity from 'components/CBTouchableOpacity';
 import CBTouchableWithoutFeedback from 'components/CBTouchableWithoutFeedback';
 import CBView from 'components/CBView';
+import CBSearchBox from "components/CBSearchBox";
 
 export {
     CBAction,
@@ -79,5 +80,6 @@ export {
     CBTooltip,
     CBTouchableOpacity,
     CBTouchableWithoutFeedback,
-    CBView
+    CBView,
+    CBSearchBox
 };
