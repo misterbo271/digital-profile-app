@@ -1,48 +1,3 @@
-// import React from 'react';
-// import {View} from 'react-native';
-// import {
-//     CBIcon,
-//     CBShadow,
-//     CBSkeleton,
-//     CBText,
-//     CBTouchableOpacity,
-//     CBView
-// } from 'components';
-// import {appStyles} from 'configs/styles';
-// import colors from "configs/colors";
-//
-// const NotificationItem = React.memo(({index, notification, onPress, onPressPopup}) => {
-//     return (
-//         <CBShadow key={index} style={{backgroundColor: colors.white}}>
-//             <CBTouchableOpacity style={{padding: 15}} define={'none'}>
-//                 <CBView key={index} define={'none'}>
-//                     <CBView style={[appStyles.item, {padding: 0, marginTop: 10}]} define={'none'}>
-//                         <CBText>{notification?.header}</CBText>
-//                     </CBView>
-//                     <CBView style={[appStyles.item, {padding: 0, marginTop: 10}]} define={'none'}>
-//                         <CBText>{notification?.message}</CBText>
-//                     </CBView>
-//                 </CBView>
-//             </CBTouchableOpacity>
-//         </CBShadow>
-//     );
-// });
-//
-// const NotificationSkeleton = React.memo(({index}) => {
-//     return (
-//         <CBShadow key={index} style={{backgroundColor: colors.white}}>
-//             <CBSkeleton style={{padding: 15}}>
-//                 <View style={{width: '25%', height: 10, borderRadius: 4, marginTop: 10}}/>
-//                 <View style={{width: '50%', height: 10, borderRadius: 10, marginTop: 15}}/>
-//                 <View style={{width: '80%', height: 8, borderRadius: 10, marginTop: 15}}/>
-//                 <View style={{width: '80%', height: 8, borderRadius: 10, marginTop: 15}}/>
-//                 <View style={{width: 30, height: 30, borderRadius: 15, position: 'absolute', top: 10, right: 50}}/>
-//             </CBSkeleton>
-//         </CBShadow>
-//     );
-// });
-//
-// export {NotificationItem, NotificationSkeleton};
 import React, {useState, useRef} from 'react';
 import {Animated} from 'react-native';
 import {CBBadge, CBIcon, CBSkeleton, CBText, CBTouchableOpacity, CBView} from 'components';
@@ -83,10 +38,6 @@ const NotificationItem = React.memo(({index, notification, onPress}) => {
                     {/*    <CBIcon type={'ionicon'} name={obj?.name} color={theme.colors.primary} size={20}/>*/}
                     {/*</CBView>*/}
                     <CBView style={{flex: 1, marginLeft: 15}} define={'none'}>
-                        <CBView style={appStyles.row} define={'none'}>
-                            {/*<CBText style={[appStyles.text, {flex: 1, marginRight: 15}]} define={'text'} numberOfLines={1} ellipsizeMode={'tail'}>{obj?.text}</CBText>*/}
-                            <CBText style={[appStyles.text, {textAlign: 'right'}]} define={'text'} numberOfLines={1} ellipsizeMode={'tail'}>30/7/2022</CBText>
-                        </CBView>
                         <CBText style={[appStyles.title, {marginTop: 5}]} define={'title'} numberOfLines={1} ellipsizeMode={'tail'}>{notification?.header}</CBText>
                         <HTMLView
                             style={{marginTop: 5}}
@@ -94,7 +45,9 @@ const NotificationItem = React.memo(({index, notification, onPress}) => {
                             textComponentProps={{style: htmlStyles.p}}
                             value={`<p>${notification?.message}</p>`}
                         />
-                        <CBText style={[appStyles.caption, {textAlign: 'right', marginTop: 5}]} define={'caption'} numberOfLines={1} ellipsizeMode={'tail'}>2h ago</CBText>
+                        <CBView style={{flexDirection: 'row', justifyContent: 'flex-end', marginRight: 5}}>
+                            <CBIcon type={'ionicon'} name={'ellipse'} color={notification?.isRead ? colors.blue : colors.red} size={6}/>
+                        </CBView>
                     </CBView>
                     {/*{!notification?.isRead ? <CBBadge containerStyle={{position: 'absolute', top: 15, left: 15}} status={'error'}/> : null}*/}
                 </CBTouchableOpacity>

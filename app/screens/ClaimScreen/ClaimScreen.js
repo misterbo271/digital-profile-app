@@ -11,11 +11,7 @@ import {removeAlias} from "utils/LanguageUtil";
 import {debounce} from "lodash";
 import JsonUtil from "utils/JsonUtil";
 
-const dataTest = [
-    { "id": "1", "claimType" : "Student", "issuer": "Ho Chi Minh University of Technology", "schema": "https://www.google.com/", "action": "KeyScreen Added", "from": "2/9/2022", "to": "2/9/2023" , "description" :"Cryptocurrentcy Cerification Consortium (C4)"},
-    { "id": "2", "claimType" : "Dev", "issuer": "Chainlink Foundation", "schema": "https://www.google.com/", "action": "KeyScreen Added", "from": "2/9/2022", "to": "2/9/2025" , "description" :"Top Quanlity Project Winner"},
-    { "id": "3", "claimType" : "Project Manager", "issuer": "Apple Inc", "schema": "https://www.google.com/", "action": "KeyScreen Added", "from": "7/3/2018", "to": "present" , "description" :"Project Manager of Apple"},
-]
+const claimData = require('../../assets/jsons/dataClaim.json')
 
 export default class ClaimScreen extends Base {
 
@@ -111,7 +107,7 @@ export default class ClaimScreen extends Base {
 
     render() {
         const {loading, keyword} = this.state;
-        const data = dataTest.filter(i => {
+        const data = claimData.filter(i => {
             const textClaimType = removeAlias(i?.claimType).toLowerCase();
             const alias = textClaimType.replace(/[^a-zA-Z0-9]/g, '');
             const pattern = removeAlias(keyword).toLowerCase();
@@ -139,7 +135,7 @@ export default class ClaimScreen extends Base {
                         keyboardDismissMode={'on-drag'}
                         keyboardShouldPersistTaps={'always'}
                         //refreshing={refreshing}
-                        data={dataTest}
+                        data={claimData}
                         renderItem={this.renderItem}
                         ItemSeparatorComponent={this.renderSeparator}
                         keyExtractor={this.keyExtractor}

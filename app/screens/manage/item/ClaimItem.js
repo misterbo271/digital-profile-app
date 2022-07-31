@@ -58,7 +58,7 @@ const ClaimItem = React.memo(({index, claim, onPress, onPressPopup}) => {
                                 </CBTouchableOpacity>
                                 <CBView style={{marginTop: 5}} define={'none'}>
                                     <CBText style={[appStyles.text, {fontSize: dimens.mediumText, color: theme.colors.grey1, fontFamily: 'GoogleSans-Bold'}]} define={'none'}>
-                                        { claim?.description.length < 32 ? claim?.description : `${claim?.description.substring(0,31)}...`}
+                                        { claim?.action.length < 32 ? claim?.action : `${claim?.action.substring(0,31)}...`}
                                     </CBText>
                                 </CBView>
                                 <CBView style={[appStyles.row, {marginTop: 5}]} define={'none'}>
@@ -69,14 +69,14 @@ const ClaimItem = React.memo(({index, claim, onPress, onPressPopup}) => {
                                         { claim?.issuer.length < 27 ? claim?.issuer : `${claim?.issuer.substring(0,26)}...`}
                                     </CBText>
                                 </CBView>
-                                <CBView style={[appStyles.row, {marginTop: 5}]} define={'none'}>
-                                    <CBText style={[appStyles.text, {fontSize: dimens.mediumText, color: theme.colors.grey1, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>
-                                        {'From: ' + claim?.from }
-                                    </CBText>
-                                    <CBText style={[appStyles.text, {marginLeft: 5, fontSize: dimens.mediumText, color: theme.colors.grey1, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>
-                                        {'To: ' + claim?.to}
-                                    </CBText>
-                                </CBView>
+                                {/*<CBView style={[appStyles.row, {marginTop: 5}]} define={'none'}>*/}
+                                {/*    <CBText style={[appStyles.text, {fontSize: dimens.mediumText, color: theme.colors.grey1, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>*/}
+                                {/*        {'From: ' + claim?.from }*/}
+                                {/*    </CBText>*/}
+                                {/*    <CBText style={[appStyles.text, {marginLeft: 5, fontSize: dimens.mediumText, color: theme.colors.grey1, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>*/}
+                                {/*        {'To: ' + claim?.to}*/}
+                                {/*    </CBText>*/}
+                                {/*</CBView>*/}
                             </CBView>
                             {/*<CBTouchableOpacity style={[appStyles.shadow, {marginRight: -15}]} onPress={onPressPopup}>*/}
                             {/*    <CBIcon type={'ionicon'} name={'ellipsis-vertical'} size={24}/>*/}

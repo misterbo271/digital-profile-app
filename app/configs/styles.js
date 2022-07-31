@@ -153,8 +153,11 @@ export const appStyles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        backgroundColor: colors.contentColor,
         paddingVertical: 10,
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
+        borderColor: colors.lineColor,
+        borderTopWidth: 1
     },
     button: {
         height: 50,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CBAvatar, CBContainer, CBScrollView, CBText, CBView} from 'components';
+import {CBAvatar, CBButton, CBContainer, CBScrollView, CBText, CBView} from 'components';
 import CBControl from 'controls/CBControl';
 import CBHandler from 'handlers/CBHandler';
 import HTMLView from 'react-native-htmlview';
@@ -8,6 +8,11 @@ import {helpers} from 'configs/themes';
 
 import Base from 'screens/Base';
 import dimens from "configs/dimens";
+import {strings} from "controls/i18n";
+import RootNavigation from "screens/RootNavigation";
+import JsonUtil from "utils/JsonUtil";
+import EventTracker from "controls/EventTracker";
+import ClaimPopup from "screens/popup/ClaimPopup";
 
 const claimData = require('../../assets/jsons/dataClaim.json')
 
@@ -15,6 +20,7 @@ export default class ClaimDetail extends Base {
 
     constructor(props) {
         super(props);
+        this.claimPopup = React.createRef();
         this.state = {
             claim: null
         };
@@ -49,6 +55,14 @@ export default class ClaimDetail extends Base {
 
     };
 
+    onClaimPopup = (item) => () => {
+        this.claimPopup.current.show({
+            claim: item,
+            index: item,
+        });
+    };
+
+
     onLinkPress = (url) => {
         if (url && url.indexOf('http') > -1) {
             CBHandler.openUrl(url);
@@ -71,36 +85,51 @@ export default class ClaimDetail extends Base {
                     style={{flex: 1}}
                     contentContainerStyle={{padding: 15}}
                     showsVerticalScrollIndicator={false}>
-                    <CBView style={[appStyles.row]}>
+                    <CBView style={[appStyles.row, {justifyContent: 'center'}]}>
                         <CBAvatar
-                            size={80}
+                            size={240}
                             source={require('assets/images/claimava.jpeg')}
                             containerStyle={{ borderRadius: 30}}
                         />
-                        <CBView>
-                            <CBText style={[appStyles.text, {marginLeft: 25, fontSize: dimens.largeText, fontFamily: 'GoogleSans-Bold', color: theme.colors.primary}]} define={'none'}>
-                                {claim?.claimType}
+
+                    </CBView>
+                    <CBView style={{marginTop: 15, marginLeft: 25}}>
+                        <CBText style={[appStyles.text, {fontSize: dimens.zettaLargeText, fontFamily: 'GoogleSans-Bold', color: theme.colors.primary}]} define={'none'}>
+                            {claim?.action}
+                        </CBText>
+                        <CBView style={[appStyles.row, {marginTop: 20}]}>
+                            <CBText style={[appStyles.text, {fontSize: dimens.largeText, color: theme.colors.grey0, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>
+                                {'Issuer: '}
                             </CBText>
-                            <CBText style={[appStyles.text, {marginLeft: 25, marginTop: 5}]} define={'title'}>{'Title: '+ claim?.action}</CBText>
-                            <CBText style={[appStyles.text, {marginLeft: 25, marginTop: 5}]} define={'title'}>{claim?.schema}</CBText>
+                            <CBText style={[appStyles.text, {fontSize: dimens.mediumText, color: theme.colors.grey1, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>
+                                { claim?.issuer}
+                            </CBText>
+                        </CBView>
+                        <CBView style={{marginTop: 5}}>
+                            <CBText style={[appStyles.text, {fontSize: dimens.largeText, color: theme.colors.grey0, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>
+                                {'Description'}
+                            </CBText>
+                            <HTMLView
+                                style={{marginTop: 10}}
+                                stylesheet={htmlStyles}
+                                textComponentProps={{style: htmlStyles.p}}
+                                value={`<p>${claim?.description}</p>`}
+                                onLinkPress={this.onLinkPress}
+                            />
+                        </CBView>
+                        <CBView style={[appStyles.row, {marginTop: 5}]}>
+                            <CBText style={[appStyles.text, {fontSize: dimens.largeText, color: theme.colors.grey0, fontFamily: 'GoogleSans-Medium'}]} define={'none'}>
+                                {'Time: '}
+                            </CBText>
+                            <CBText style={[appStyles.text, {textAlign: 'right'}]} define={'text'}>{'From: ' + claim?.from }</CBText>
+                            <CBText style={[appStyles.text, {textAlign: 'right', marginLeft: 10}]} define={'text'}>{'To: ' + claim?.to }</CBText>
                         </CBView>
                     </CBView>
-                    <CBView style={[appStyles.row]}>
-                        <CBText style={[appStyles.text, {marginTop: 15}]} define={'title'}>{'Issuer: '}</CBText>
-                        <CBText style={[appStyles.text, {marginTop: 15}]} define={'title'}>{claim?.issuer}</CBText>
-                    </CBView>
-                    <HTMLView
-                        style={{marginTop: 10}}
-                        stylesheet={htmlStyles}
-                        textComponentProps={{style: htmlStyles.p}}
-                        value={`<p>${claim?.description}</p>`}
-                        onLinkPress={this.onLinkPress}
-                    />
-                    <CBView style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        <CBText style={[appStyles.text, {textAlign: 'right', marginTop: 10}]} define={'text'}>{'From: ' + claim?.from }</CBText>
-                        <CBText style={[appStyles.text, {marginLeft: 10, textAlign: 'right', marginTop: 10}]} define={'text'}>{'To: ' + claim?.to}</CBText>
-                    </CBView>
                 </CBScrollView>
+                <CBView style={[appStyles.footer, {justifyContent: 'center'}]} define={'footer'}>
+                    <CBButton style={{marginTop: 10, width: (dimens.widthScreen / 3) * 1.5 }} title={'Share'} onPress={this.onClaimPopup(claim)}/>
+                </CBView>
+                <ClaimPopup ref={this.claimPopup}/>
             </CBContainer>
         );
     }
